@@ -1,0 +1,17 @@
+searchFilter(){
+  this.defaultPagination = 1;
+  this.advancedPagination = 1;
+  this.paginationSize = 1;
+  this.disabledPagination = 1;
+  this.isDisabled = true;
+    const getsearchParams = this.staticPageSearchForm.value;
+    let searchParms :any
+      searchParms = {
+      "customSearch":getsearchParams.customSearch,
+     }
+    
+     localStorage.setItem("customSearch", JSON.stringify(searchParms));
+     localStorage.setItem("pageSess", this.defaultPagination.toString());
+
+     this. getstaticpagelist();
+}

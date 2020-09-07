@@ -1,0 +1,117 @@
+<div class="row"> 
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div  >
+        Staff list
+        
+        <button type="button" class="btn btn-primary btn-fw" 
+        style="margin-left: 600px;margin-top: 10px;padding: 10px;size: 35px;" (click)="addstaffPage()">Add Staff</button>
+        </div>
+     
+        <div class="table-responsive pt-3">
+          <table class="table table-bordered table-hover">
+            <thead class="table table-bordered" >
+              <tr>
+                <th>S.No</th>
+                <th>Staff name</th>
+                <th>Address</th>
+                <th>Action</th>
+                <!-- <th>Product</th>
+                <th>Sale</th>
+                <th>Status</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let data of getStaticPageList let i = index">
+                <td>{{(defaultPagination - 1) * 10 + i +1}}</td>
+                <td>{{data.staffname}}</td>
+                <td>{{data.address}}</td>
+                <td>
+                  <button routerLink="/staff/edit/{{data.id}}"><i class="mdi mdi-pencil"></i></button> &nbsp;
+                  <i class="mdi mdi-delete"></i> 
+                </td>
+                   </tr>
+             
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ml-auto"> 
+    <b>Total Number of records :</b>{{noOfPages}}
+  </div> 
+  <div class="ml-auto">
+
+    <ngb-pagination [collectionSize]="noOfPages.toString()"
+    [(page)]="default" (pageChange)="pageChange(page)"
+     [maxSize]="5" [rotate]="true">
+  
+  aria-label="Default pagination" class="pagination-flat pagination-success"></ngb-pagination>   
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- 
+  <div class="row"> 
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div  >
+          Staff list
+          
+          <button type="button" class="btn btn-primary btn-fw" 
+          style="margin-left: 600px;margin-top: 10px;padding: 10px;size: 35px;" (click)="addstaffPage()">Add Staff</button>
+          </div>
+       
+          <div class="table-responsive pt-3">
+            <table class="table table-bordered table-hover">
+              <thead class="table table-bordered" >
+                <tr>
+                  <th>S.No</th>
+                  <th>Staff name</th>
+                  <th>Address</th>
+                  <th>Action</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor = "let data of staffListData let i = index">
+                  <td>{{(itemperpage - 1) * 10 + i +1}}</td>
+                  <td>{{data.staffname}}</td>
+                  <td>{{data.address}}</td>
+                  <td>
+                    <button routerLink="/staff/edit/{{data.id}}"><i class="mdi mdi-pencil"></i></button> &nbsp;
+                    <i class="mdi mdi-delete"></i> 
+                  </td>
+                     </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ml-auto"> 
+      <b>Total Number of records :</b>{{noOfPages}}
+    </div> 
+    <div class="ml-auto">
+
+    <ngb-pagination [collectionSize]="noOfPages.toString()"
+    (pagechange)="pagechange(page)" [rotate]="true"
+    
+    aria-label="Default pagination" class="pagination-flat pagination-success"></ngb-pagination>   
+    </div>
+  
+  </div> -->
+  
